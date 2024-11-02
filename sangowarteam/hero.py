@@ -1,3 +1,4 @@
+import random
 from enum import Enum
 
 
@@ -92,18 +93,25 @@ class Hero:
         if not self.is_alive() or not target.is_alive():
             return
 
-        damage = int(
-            (
-                self.attack
-                * self.troops.get_troop_rate()
-                * self.troops.compare_troop_rate(target.troops)
+        forces_random_weight = random.uniform(0.01, 0.05)
+        base_attribute_weight = random.uniform(0.01, 0.1)
+        min_damage = random.randint(5, 15)
+
+        damage = 0
+        base_damage = (
+            self.attack
+            * self.troops.get_troop_rate()
+            * self.troops.compare_troop_rate(target.troops)
+        ) - (target.defense * target.troops.get_troop_rate())
+
+        if base_damage > 0:
+            damage = (
+                base_damage * (1 + base_attribute_weight)
+                + self.current_forces * forces_random_weight
             )
-            - (target.defense * target.troops.get_troop_rate())
-        )
-        if damage < 1:
-            damage = 1
+        damage = max(min_damage, int(damage))
+
+        target.current_forces -= damage
         print(
             f"{self.name} attack {target.name} with {damage} damage, {target.name} remaining forces: {target.current_forces}"
         )
-        target.current_forces -= damage
-        print(f"{target.name} remaining forces: {target.current_forces}")

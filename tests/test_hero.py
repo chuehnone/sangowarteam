@@ -86,4 +86,4 @@ def test_attack_target(setup_heroes):
     hero1.troops.set_current(TroopType.Cavalry)
     hero2.troops.set_current(TroopType.Spears)
     hero1.attack_target(hero2)
-    assert hero2.current_forces == 100 - int(50 * 1 * 0.85 - 25 * 0.7)
+    assert 65 <= hero2.current_forces <= 75

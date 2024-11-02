@@ -46,99 +46,99 @@ if __name__ == "__main__":
     team1_heros = [
         Hero(
             "劉備",
-            attack=50,
-            defense=30,
-            forces=10000,
-            speed=20,
-            intelligence=80,
+            attack=115.63,
+            defense=10.63,
+            forces=100,
+            speed=10.63,
+            intelligence=10.63,
             troops=Troop(
-                cavalry=TroopQuality.S,
-                shield=TroopQuality.A,
-                bows=TroopQuality.B,
+                cavalry=TroopQuality.C,
+                shield=TroopQuality.C,
+                bows=TroopQuality.C,
                 spears=TroopQuality.C,
             ),
         ),
         Hero(
             "關羽",
-            attack=50,
-            defense=30,
-            forces=10000,
-            speed=20,
-            intelligence=80,
+            attack=15.63,
+            defense=10.63,
+            forces=100,
+            speed=10.63,
+            intelligence=10.63,
             troops=Troop(
-                cavalry=TroopQuality.S,
-                shield=TroopQuality.A,
-                bows=TroopQuality.B,
+                cavalry=TroopQuality.C,
+                shield=TroopQuality.C,
+                bows=TroopQuality.C,
                 spears=TroopQuality.C,
             ),
         ),
         Hero(
             "張飛",
-            attack=50,
-            defense=30,
-            forces=10000,
-            speed=20,
-            intelligence=80,
+            attack=15.63,
+            defense=10.63,
+            forces=100,
+            speed=10.63,
+            intelligence=10.63,
             troops=Troop(
-                cavalry=TroopQuality.S,
-                shield=TroopQuality.A,
-                bows=TroopQuality.B,
+                cavalry=TroopQuality.C,
+                shield=TroopQuality.C,
+                bows=TroopQuality.C,
                 spears=TroopQuality.C,
             ),
         ),
     ]
     team1 = Team("蜀軍", team1_heros)
     for hero in team1.heros:
-        hero.troops.set_current(TroopType.Cavalry)
+        hero.troops.set_current(TroopType.Bows)
 
     # 定義隊伍2
     team2_heros = [
         Hero(
             "曹操",
-            attack=50,
-            defense=30,
-            forces=10000,
-            speed=20,
-            intelligence=80,
+            attack=10,
+            defense=10,
+            forces=100,
+            speed=10,
+            intelligence=10,
             troops=Troop(
-                cavalry=TroopQuality.S,
-                shield=TroopQuality.A,
-                bows=TroopQuality.B,
+                cavalry=TroopQuality.C,
+                shield=TroopQuality.C,
+                bows=TroopQuality.C,
                 spears=TroopQuality.C,
             ),
         ),
         Hero(
             "夏侯惇",
-            attack=50,
-            defense=30,
-            forces=10000,
-            speed=20,
-            intelligence=80,
+            attack=10,
+            defense=10,
+            forces=100,
+            speed=10,
+            intelligence=10,
             troops=Troop(
-                cavalry=TroopQuality.S,
-                shield=TroopQuality.A,
-                bows=TroopQuality.B,
+                cavalry=TroopQuality.C,
+                shield=TroopQuality.C,
+                bows=TroopQuality.C,
                 spears=TroopQuality.C,
             ),
         ),
         Hero(
             "夏侯淵",
-            attack=50,
-            defense=30,
-            forces=10000,
-            speed=20,
-            intelligence=80,
+            attack=10,
+            defense=10,
+            forces=100,
+            speed=10,
+            intelligence=10,
             troops=Troop(
-                cavalry=TroopQuality.S,
-                shield=TroopQuality.A,
-                bows=TroopQuality.B,
+                cavalry=TroopQuality.C,
+                shield=TroopQuality.C,
+                bows=TroopQuality.C,
                 spears=TroopQuality.C,
             ),
         ),
     ]
     team2 = Team("魏軍", team2_heros)
     for hero in team2.heros:
-        hero.troops.set_current(TroopType.Shield)
+        hero.troops.set_current(TroopType.Cavalry)
 
     # 計算勝率
     win_rates = calculate_win_rate_parallel(
